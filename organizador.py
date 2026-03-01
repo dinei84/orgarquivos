@@ -43,4 +43,12 @@ def organizar_pasta():
                 print(f"📦 '{arquivo}' não listado -> Movido para 'Outros'")
 
 if __name__ == "__main__":
-    organizar_pasta()
+    try:
+        organizar_pasta()
+        # Cria um arquivo de texto para confirmar que rodou
+        with open(os.path.join(PASTA_ORIGEM, "log_sucesso.txt"), "a") as f:
+            f.write(f"Rodou com sucesso em: {os.path.abspath(PASTA_ORIGEM)}\n")
+    except Exception as e:
+        # Se der erro, ele salva o motivo aqui
+        with open(os.path.join(PASTA_ORIGEM, "erro_automacao.txt"), "a") as f:
+            f.write(f"Erro: {str(e)}\n")
