@@ -1,7 +1,7 @@
 import os
 import shutil
 
-PASTA_ORIGEM = r"C:\Users\g10ar\Downloads"
+PASTA_ORIGEM = os.path.join(os.path.expanduser("~"), "Downloads")
 
 MAPA_EXTENSOES = {
     "Imagens": [".jpg", ".jpeg", ".png", ".gif"],
